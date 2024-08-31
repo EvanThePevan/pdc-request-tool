@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDC Request Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDC Request Tool</h1>
+        </header>
+
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
+        <form id="pdcForm">
+            <div class="form-group">
+                <label for="flightNumber">Flight Number/Callsign:</label>
+                <input type="text" id="flightNumber" name="flightNumber" placeholder="Enter Flight Number/Callsign" required>
+            </div>
+
+            <div class="form-group">
+                <label for="atisLetter">ATIS Letter:</label>
+                <input type="text" id="atisLetter" name="atisLetter" maxlength="1" placeholder="Enter ATIS Letter" required>
+            </div>
+
+            <div class="form-group">
+                <label for="acType">A/C Type:</label>
+                <input type="text" id="acType" name="acType" placeholder="Enter Aircraft Type" required>
+            </div>
+
+            <div class="form-group">
+                <label for="departure">Departure Airport:</label>
+                <select id="departure" name="departure" required>
+                    <option value="">Select Departure Airport</option>
+                    <option value="IBAR">IBAR</option>
+                    <option value="IHEN">IHEN</option>
+                    <option value="ILAR">ILAR</option>
+                    <option value="IIAB">IIAB</option>
+                    <option value="IPAP">IPAP</option>
+                    <option value="IGRV">IGRV</option>
+                    <option value="IJAF">IJAF</option>
+                    <option value="IZOL">IZOL</option>
+                    <option value="ISCM">ISCM</option>
+                    <option value="IDCS">IDCS</option>
+                    <option value="ITKO">ITKO</option>
+                    <option value="ILKL">ILKL</option>
+                    <option value="IPPH">IPPH</option>
+                    <option value="IGAR">IGAR</option>
+                    <option value="IBLT">IBLT</option>
+                    <option value="IRFD">IRFD</option>
+                    <option value="IMLR">IMLR</option>
+                    <option value="ITRC">ITRC</option>
+                    <option value="IBTH">IBTH</option>
+                    <option value="ISAU">ISAU</option>
+                    <option value="ISKP">ISKP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival">Arrival Airport:</label>
+                <select id="arrival" name="arrival" required>
+                    <option value="">Select Arrival Airport</option>
+                    <option value="IBAR">IBAR</option>
+                    <option value="IHEN">IHEN</option>
+                    <option value="ILAR">ILAR</option>
+                    <option value="IIAB">IIAB</option>
+                    <option value="IPAP">IPAP</option>
+                    <option value="IGRV">IGRV</option>
+                    <option value="IJAF">IJAF</option>
+                    <option value="IZOL">IZOL</option>
+                    <option value="ISCM">ISCM</option>
+                    <option value="IDCS">IDCS</option>
+                    <option value="ITKO">ITKO</option>
+                    <option value="ILKL">ILKL</option>
+                    <option value="IPPH">IPPH</option>
+                    <option value="IGAR">IGAR</option>
+                    <option value="IBLT">IBLT</option>
+                    <option value="IRFD">IRFD</option>
+                    <option value="IMLR">IMLR</option>
+                    <option value="ITRC">ITRC</option>
+                    <option value="IBTH">IBTH</option>
+                    <option value="ISAU">ISAU</option>
+                    <option value="ISKP">ISKP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stand">Stand:</label>
+                <input type="text" id="stand" name="stand" placeholder="Enter Stand Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="freeText">Additional Remarks:</label>
+                <textarea id="freeText" name="freeText" placeholder="Enter Additional Remarks" oninput="capitalizeFreeText()"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="Generate Request" onclick="generateRequest()">
+            </div>
+        </form>
+
+        <div class="request-preview">
+            <h2>Request Preview</h2>
+            <p id="requestPreview"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
